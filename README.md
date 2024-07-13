@@ -1,5 +1,5 @@
 # Auto Moreira Base Lib
-My personal base library.
+Auto Moreira base library.
 
 # Author
 Rafael Santos
