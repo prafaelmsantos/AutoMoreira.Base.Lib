@@ -14,6 +14,16 @@
         #endregion
 
         #region Public methods
+        public async Task SendWelcomeEmailAsync(SendWelcomeEmailRequestGrpc request)
+        {
+            await _notificationsGrpcServerService.SendWelcomeEmailAsync(request);
+        }
+
+        public async Task SendUserProfileUpdatedEmailAsync(SendUserProfileUpdatedEmailRequestGrpc request)
+        {
+            await _notificationsGrpcServerService.SendUserProfileUpdatedEmailAsync(request);
+        }
+
         public async Task SendClientEmailAsync(SendClientEmailRequestGrpc request)
         {
             await _notificationsGrpcServerService.SendClientEmailAsync(request);
@@ -29,15 +39,6 @@
             await _notificationsGrpcServerService.SendPasswordResetEmailAsync(request);
         }
 
-        public async Task SendUserProfileUpdatedEmailAsync(SendUserProfileUpdatedEmailRequestGrpc request)
-        {
-            await _notificationsGrpcServerService.SendUserProfileUpdatedEmailAsync(request);
-        }
-
-        public async Task SendWelcomeEmailAsync(SendWelcomeEmailRequestGrpc request)
-        {
-            await _notificationsGrpcServerService.SendWelcomeEmailAsync(request);
-        }
         #endregion
     }
 }
