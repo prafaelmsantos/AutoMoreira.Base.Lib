@@ -9,28 +9,28 @@
         private static IServiceCollection AddNotificationsGrpcService(this IServiceCollection services, IConfiguration configuration)
         {
 
-            /*MethodConfig defaultMethodConfig = new()
+            MethodConfig defaultMethodConfig = new()
             {
                 Names = { MethodName.Default },
                 RetryPolicy = new RetryPolicy
                 {
-                    MaxAttempts = configuration.GetValue<int>("GrpcClient:BackOff:MaxAttempts").GetEnvironment("GRPCCLIENT_BACKOFF_MAXATTEMPTS"),
-                    InitialBackoff = TimeSpan.FromSeconds(configuration.GetValue<int>("GrpcClient:BackOff:InitialBackoff").GetEnvironment("GRPCCLIENT_BACKOFF_INITIALBACKOFF")),
-                    MaxBackoff = TimeSpan.FromSeconds(configuration.GetValue<int>("GrpcClient:BackOff:MaxBackoff").GetEnvironment("GRPCCLIENT_BACKOFF_MAXBACKOFF")),
-                    BackoffMultiplier = configuration.GetValue<double>("GrpcClient:BackOff:BackoffMultiplier").GetEnvironment("GRPCCLIENT_BACKOFF_BACKOFFMULTIPLIER"),
+                    MaxAttempts = 5,
+                    InitialBackoff = TimeSpan.FromSeconds(1),
+                    MaxBackoff = TimeSpan.FromSeconds(5),
+                    BackoffMultiplier = 1.5,
                     RetryableStatusCodes = { StatusCode.Unavailable, StatusCode.Internal }
                 }
             };
 
-            string grpcUrl = configuration.GetValue<string>("GrpcClient:Authorization:Url").GetEnvironment("GRPCCLIENT_AUTHORIZATION_URL");
             services.AddCodeFirstGrpcClient<INotificationsGrpcServerService>(o =>
             {
-                o.Address = new Uri(grpcUrl);
+                o.Address = new Uri("http://localhost:81");
                 o.ChannelOptionsActions.Add(channelOptions => channelOptions.ServiceConfig = new ServiceConfig
                 {
                     MethodConfigs = { defaultMethodConfig }
                 });
-            });*/
+            });
+
             services.AddScoped<INotificationsGrpcClientService, NotificationsGrpcClientService>();
             return services;
         }
