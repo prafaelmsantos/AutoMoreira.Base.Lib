@@ -2,7 +2,7 @@
 {
     public static class ServiceCollectionExtension
     {
-        public static IServiceCollection AddAuthorizationGrpcService(this IServiceCollection services)
+        public static IServiceCollection AddNotificationsGrpcService(this IServiceCollection services)
         {
             return services.AddNotificationsGrpcService(services.BuildServiceProvider().GetRequiredService<IConfiguration>());
         }
@@ -21,10 +21,11 @@
                     RetryableStatusCodes = { StatusCode.Unavailable, StatusCode.Internal }
                 }
             };
+            string grpcUrl = Environment.GetEnvironmentVariable("GRPCCLIENT_NOTIFICATIONS_URL") ?? configuration?.GetValue<string>("GrpcClient:Notifications:Url") ?? string.Empty;
 
             services.AddCodeFirstGrpcClient<INotificationsGrpcServerService>(o =>
             {
-                o.Address = new Uri("http://localhost:81");
+                o.Address = new Uri(grpcUrl);
                 o.ChannelOptionsActions.Add(channelOptions => channelOptions.ServiceConfig = new ServiceConfig
                 {
                     MethodConfigs = { defaultMethodConfig }
