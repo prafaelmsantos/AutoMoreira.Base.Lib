@@ -24,11 +24,6 @@
             await _notificationsGrpcServerService.SendUserProfileUpdatedEmailAsync(request);
         }
 
-        public async Task SendClientEmailAsync(SendClientEmailRequestGrpc request)
-        {
-            await _notificationsGrpcServerService.SendClientEmailAsync(request);
-        }
-
         public async Task SendPasswordChangedEmailAsync(SendPasswordChangedEmailRequestGrpc request)
         {
             await _notificationsGrpcServerService.SendPasswordChangedEmailAsync(request);

@@ -10,9 +10,6 @@
         Task SendUserProfileUpdatedEmailAsync(SendUserProfileUpdatedEmailRequestGrpc request, CallContext context = default);
 
         [OperationContract]
-        Task SendClientEmailAsync(SendClientEmailRequestGrpc request, CallContext context = default);
-
-        [OperationContract]
         Task SendPasswordChangedEmailAsync(SendPasswordChangedEmailRequestGrpc request, CallContext context = default);
 
         [OperationContract]

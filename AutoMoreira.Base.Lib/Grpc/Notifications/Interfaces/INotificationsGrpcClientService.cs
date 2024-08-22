@@ -6,8 +6,6 @@
 
         Task SendUserProfileUpdatedEmailAsync(SendUserProfileUpdatedEmailRequestGrpc request);
 
-        Task SendClientEmailAsync(SendClientEmailRequestGrpc request);
-
         Task SendPasswordChangedEmailAsync(SendPasswordChangedEmailRequestGrpc request);
 
         Task SendPasswordResetEmailAsync(SendPasswordResetEmailRequestGrpc request);

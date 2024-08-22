@@ -1,6 +1,5 @@
 ﻿global using AutoMoreira.Base.Lib.Data.Domains;
 global using AutoMoreira.Base.Lib.Grpc.Notifications.Interfaces;
-global using AutoMoreira.Base.Lib.Grpc.Notifications.Models.SendClientEmail.Request;
 global using AutoMoreira.Base.Lib.Grpc.Notifications.Models.SendPasswordChangedEmail.Request;
 global using AutoMoreira.Base.Lib.Grpc.Notifications.Models.SendPasswordResetEmail;
 global using AutoMoreira.Base.Lib.Grpc.Notifications.Models.SendUserProfileUpdatedEmail.Request;
